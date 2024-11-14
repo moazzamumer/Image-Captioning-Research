@@ -2,9 +2,10 @@ import requests
 import json
 from bs4 import BeautifulSoup
 import os
+import pandas as pd
 
 # Path to the text file that stores the image ID
-ID_FILE_PATH = '.gul-ahmed-data/image_id_iterator.txt'
+ID_FILE_PATH = './gul-ahmed-data/image_id_iterator.txt'
 
 # Function to read the JSON file
 def read_json_data(filename='scraped_data.json'):
@@ -97,8 +98,10 @@ for product in data:
     # Extract image type
     img_type = product_image_url.split(".")[-1].split('?')[0]
 
+    img_name = f"image{get_current_image_id()}.{img_type}"
+
     # Generate the file name and save path
-    save_path = f"./gul-ahmed-data/images/image{get_current_image_id()}.{img_type}"
+    save_path = f"./gul-ahmed-data/images/{img_name}"
 
     # Download the image
     download_image(product_image_url, save_path)
@@ -107,34 +110,44 @@ for product in data:
     content = get_page_content(product_page_url)
 
     # Extract product description
-    product_description = content.find('div', class_="product attribute description").find('p').get_text()
+    try:
+        product_description = content.find('div', class_="product attribute description").find('p').get_text()
+    except:
+        product_description = None
 
     # Find the table with class 'data table additional-attributes'
-    table = content.find('table', class_='data table additional-attributes')
+    try:
+        table = content.find('table', class_='data table additional-attributes')
+        # Extract all rows in the table
+        rows = table.find_all('tr')
 
-    # Extract all rows in the table
-    rows = table.find_all('tr')
+        # Create an empty dictionary to store the product info
+        product_info = {}
 
-    # Create an empty dictionary to store the product info
-    product_info = {}
+        # Iterate through each row and extract the label and corresponding data
+        for row in rows:
+            label = row.find('th')
+            data = row.find('td')
+            
+            if label and data:
+                label_text = label.get_text(strip=True)  # Get text from the label (th)
+                data_text = data.get_text(strip=True)    # Get text from the data (td)
+                product_info[label_text] = data_text
+    except:
+        product_info = None
 
-    # Iterate through each row and extract the label and corresponding data
-    for row in rows:
-        label = row.find('th')
-        data = row.find('td')
-        
-        if label and data:
-            label_text = label.get_text(strip=True)  # Get text from the label (th)
-            data_text = data.get_text(strip=True)    # Get text from the data (td)
-            product_info[label_text] = data_text
 
     # Prepare a dictionary with all product information for DataFrame
     product_dict = {
-        'product_title': product_title,
-        'product_image_url': product_image_url,
-        'product_page_url': product_page_url,
-        'product_description': product_description,
-        **product_info  # Add the additional product attributes from the table
+        'Product ID': get_current_image_id(),
+        'Product Title': product_title,
+        'Brand': 'Gul Ahmed',
+        'Image Filename': img_name,
+        'Image Path': save_path,
+        'Image URL': product_image_url,
+        'Product URL': product_page_url,
+        'Description': product_description,
+        'Additional Info': product_info  # Add the additional product attributes from the table
     }
 
     # Append the dictionary to the list for DataFrame
@@ -142,3 +155,13 @@ for product in data:
 
     # Optionally update the image ID after each iteration
     update_image_id(get_current_image_id() + 1)
+
+
+# Convert the list of product data to a DataFrame
+df = pd.DataFrame(product_data)
+
+# Save the DataFrame to a CSV file
+df.to_csv('./gul-ahmed-data/gul_ahmed_metadata.csv', index=False)
+
+# Optional: Print the DataFrame to see the data
+#print(df.head())

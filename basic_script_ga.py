@@ -13,7 +13,7 @@ Driver_path = r'C:\chromedriver-win64\chromedriver.exe'
 def get_full_page_content_with_selenium(url):
     # Set up the Chrome WebDriver
     chrome_options = Options()
-    #chrome_options.add_argument('--headless')  # Run in headless mode (optional)
+    chrome_options.add_argument('--headless')  # Run in headless mode (optional)
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
     
@@ -46,11 +46,9 @@ def get_full_page_content_with_selenium(url):
         driver.quit()
 
 # Function to extract data from the page content
-def extract_data_from_page(page_content):
+def extract_data_from_page(page_content, data):
     soup = BeautifulSoup(page_content, 'html.parser')
     main_image_divs = soup.find_all('div', class_='item main-image')
-    
-    data = []
     
     for main_image_div in main_image_divs:
         # Extract the anchor tag and its href
@@ -70,21 +68,32 @@ def extract_data_from_page(page_content):
 
         data.append(x)
     
-    return data
-
 # Function to save data to a JSON file
 def save_data_to_json(data, filename='scraped_data.json'):
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
     print(f"Data saved to {filename}")
 
-# Example usage
-url = 'https://www.gulahmedshop.com/women'
-page_content = get_full_page_content_with_selenium(url)
-data = extract_data_from_page(page_content)
+# Function to read links from a text file and store them in a list
+def read_links_from_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            # Read all lines, strip newline characters, and store them in a list
+            links = [line.strip() for line in file if line.strip()]
+        return links
+    except FileNotFoundError:
+        print(f"Error: The file {file_path} was not found.")
+        return []
+
+
+urls = read_links_from_file("ga_urls.txt")
+data = []
+
+for url in urls:
+    page_content = get_full_page_content_with_selenium(url)
+    extract_data_from_page(page_content, data)
 
 # Save data to JSON file
 save_data_to_json(data)
 
 print(f"Total items scraped: {len(data)}")
-print(data[:5])  # Print first 5 items for inspection
