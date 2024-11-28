@@ -1,0 +1,10 @@
+limelight.jpg
+trained_blip_model-20241128T232925Z-001.zip
+trained_blip_model/config.json
+trained_blip_model/generation_config.json
+trained_blip_model/model.safetensors
+trained_blip_model/preprocessor_config.json
+trained_blip_model/special_tokens_map.json
+trained_blip_model/tokenizer_config.json
+trained_blip_model/tokenizer.json
+trained_blip_model/vocab.txt
