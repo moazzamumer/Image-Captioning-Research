@@ -82,17 +82,17 @@ This repository supports research focused on enhancing the image captioning capa
 - Preliminary results show improved captioning performance for South Asian apparel.
 - The fine-tuned BLIP model demonstrates enhanced recognition of fabric types and dress styles compared to baseline models.
 
-![result-1](Results/result-1.jpg)
-![result-2](Results/result-2.jpg)
-![result-3](Results/result-3.jpg)
-![result-4](Results/result-4.jpg)
-![result-5](Results/result-5.jpg)
-![result-6](Results/result-6.jpg)
-![result-7](Results/result-7.jpg)
-![result-8](Results/result-8.jpg)
-![result-9](Results/result-9.jpg)
-![result-10](Results/result-10.jpg)
-![result-11](Results/result-11.jpg)
+<img src="Results/result-1.jpg" alt="result-1" width="400">
+<img src="Results/result-2.jpg" alt="result-2" width="400">
+<img src="Results/result-3.jpg" alt="result-3" width="400">
+<img src="Results/result-4.jpg" alt="result-4" width="400">
+<img src="Results/result-5.jpg" alt="result-5" width="400">
+<img src="Results/result-6.jpg" alt="result-6" width="400">
+<img src="Results/result-7.jpg" alt="result-7" width="400">
+<img src="Results/result-8.jpg" alt="result-8" width="400">
+<img src="Results/result-9.jpg" alt="result-9" width="400">
+<img src="Results/result-10.jpg" alt="result-10" width="400">
+<img src="Results/result-11.jpg" alt="result-11" width="400">
 
 ---
 
