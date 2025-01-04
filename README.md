@@ -92,6 +92,8 @@ This repository supports research focused on enhancing the image captioning capa
 <img src="Results/result-10.jpg" alt="result-10" width="400">
 <img src="Results/result-11.jpg" alt="result-11" width="400">
 
+- For evalution metrics, see `evaluation_scores.csv`.
+- For more caption comparison, see `trained_blip_results.csv`
 ---
 
 ## Future Work
