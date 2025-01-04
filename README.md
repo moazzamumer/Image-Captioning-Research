@@ -82,6 +82,18 @@ This repository supports research focused on enhancing the image captioning capa
 - Preliminary results show improved captioning performance for South Asian apparel.
 - The fine-tuned BLIP model demonstrates enhanced recognition of fabric types and dress styles compared to baseline models.
 
+![result-1](Results/result-1.jpg)
+![result-2](Results/result-2.jpg)
+![result-3](Results/result-3.jpg)
+![result-4](Results/result-4.jpg)
+![result-5](Results/result-5.jpg)
+![result-6](Results/result-6.jpg)
+![result-7](Results/result-7.jpg)
+![result-8](Results/result-8.jpg)
+![result-9](Results/result-9.jpg)
+![result-10](Results/result-10.jpg)
+![result-11](Results/result-11.jpg)
+
 ---
 
 ## Future Work
