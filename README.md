@@ -83,10 +83,8 @@ This repository supports research focused on enhancing the image captioning capa
 - The fine-tuned BLIP model demonstrates enhanced recognition of fabric types and dress styles compared to baseline models.
 
 <img src="Results/result-1.jpg" alt="result-1" width="400">
-<img src="Results/result-2.jpg" alt="result-2" width="400">
 <img src="Results/result-3.jpg" alt="result-3" width="400">
 <img src="Results/result-4.jpg" alt="result-4" width="400">
-<img src="Results/result-5.jpg" alt="result-5" width="400">
 <img src="Results/result-6.jpg" alt="result-6" width="400">
 <img src="Results/result-7.jpg" alt="result-7" width="400">
 <img src="Results/result-8.jpg" alt="result-8" width="400">
