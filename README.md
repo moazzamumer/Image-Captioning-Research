@@ -82,15 +82,15 @@ This repository supports research focused on enhancing the image captioning capa
 - Preliminary results show improved captioning performance for South Asian apparel.
 - The fine-tuned BLIP model demonstrates enhanced recognition of fabric types and dress styles compared to baseline models.
 
-<img src="Results/result-1.jpg" alt="result-1" width="400">
-<img src="Results/result-3.jpg" alt="result-3" width="400">
-<img src="Results/result-4.jpg" alt="result-4" width="400">
-<img src="Results/result-6.jpg" alt="result-6" width="400">
-<img src="Results/result-7.jpg" alt="result-7" width="400">
-<img src="Results/result-8.jpg" alt="result-8" width="400">
-<img src="Results/result-9.jpg" alt="result-9" width="400">
-<img src="Results/result-10.jpg" alt="result-10" width="400">
-<img src="Results/result-11.jpg" alt="result-11" width="400">
+<img src="GA-Results/result-1.jpg" alt="result-1" width="400">
+<img src="GA-Results/result-3.jpg" alt="result-3" width="400">
+<img src="GA-Results/result-4.jpg" alt="result-4" width="400">
+<img src="GA-Results/result-6.jpg" alt="result-6" width="400">
+<img src="GA-Results/result-7.jpg" alt="result-7" width="400">
+<img src="GA-Results/result-8.jpg" alt="result-8" width="400">
+<img src="GA-Results/result-9.jpg" alt="result-9" width="400">
+<img src="GA-Results/result-10.jpg" alt="result-10" width="400">
+<img src="GA-Results/result-11.jpg" alt="result-11" width="400">
 
 - For evalution metrics, see `evaluation_scores.csv`.
 - For more caption comparison, see `trained_blip_results.csv`
